@@ -14,6 +14,7 @@ unless `which convert` =~ /convert/
   abort "You need to install imagemagick"
 end
 
+require 'kindlerb'
 require 'nokogiri'
 require 'fileutils'
 require 'yaml'
@@ -220,6 +221,6 @@ class Kindlefodder
       d = default_metadata.merge(document)
       f.puts d.to_yaml
     }
-    exec 'kindlerb'
+    Kindlerb.run '.'
   end
 end
